@@ -1,0 +1,7 @@
+# Compiled source #
+###################
+*.pyc
+
+# Temporary files #
+###################
+*.py~
