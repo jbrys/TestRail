@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f67e6577-7688-4208-88bc-bf2c6802af9b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/testrail.py" />
+    <list default="true" id="f67e6577-7688-4208-88bc-bf2c6802af9b" name="Default" comment="get requests are">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api.py" afterPath="$PROJECT_DIR$/src/api.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testrail.py.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,10 +29,10 @@
       <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="1" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2190">
+            <state line="161" column="0" selection-start="6320" selection-end="6320" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
               <folding>
                 <element signature="e#53#68#0" expanded="true" />
-                <marker date="1389078173000" expanded="true" signature="724:1102" placeholder="..." />
+                <marker date="1389082030000" expanded="true" signature="857:1235" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -58,15 +58,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -86,6 +77,7 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/testrail.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/api.py" />
         <option value="$PROJECT_DIR$/src/settings.py" />
       </list>
@@ -363,13 +355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="651">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/testrail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="82" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
@@ -381,10 +366,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="1" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2190">
+        <state line="161" column="0" selection-start="6320" selection-end="6320" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
           <folding>
             <element signature="e#53#68#0" expanded="true" />
-            <marker date="1389078173000" expanded="true" signature="724:1102" placeholder="..." />
+            <marker date="1389082030000" expanded="true" signature="857:1235" placeholder="..." />
           </folding>
         </state>
       </provider>
