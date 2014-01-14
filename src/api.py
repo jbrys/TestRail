@@ -19,12 +19,15 @@ def get_case(id):
     return req.json()
 
 
-def get_cases(project_id, suite_id):
+def get_cases(project_id, suite_id, section_id=None):
     """Returns a list of test cases for a test suite."""
     id = project_id
+    params = {'suite_id': suite_id}
+    if section_id is not None:
+        params = {'suite_id': suite_id, 'section_id': section_id}
 
     req = requests.get(settings.URL + 'get_cases/' + str(id),
-                       params={'suite_id': suite_id},
+                       params=params,
                        auth=(settings.USR, settings.PWD), headers=headers)
     return req.json()
 
@@ -224,7 +227,7 @@ def add_plan_entry(plan_id, **kwargs):
     for key in kwargs:
         fields[key] = kwargs[key]
 
-    req = requests.post(settings.URL + 'add_plan/' + str(project_id),
+    req = requests.post(settings.URL + 'add_plan/' + str(plan_id),
                         auth=(settings.USR, settings.PWD), headers=headers,
                         data=json.dumps(fields))
 
@@ -239,7 +242,7 @@ def update_plan_entry(plan_id, entry_id, **kwargs):
     for key in kwargs:
         fields[key] = kwargs[key]
 
-    req = requests.post(settings.URL + 'update_plan_entry/' + '%d/%d' % [plan_id, entry_id],
+    req = requests.post(settings.URL + 'update_plan_entry/' + '%d/%d' % (plan_id, entry_id),
                         auth=(settings.USR, settings.PWD), headers=headers,
                         data=json.dumps(fields))
 
@@ -295,6 +298,46 @@ def get_runs(project_id):
                        auth=(settings.USR, settings.PWD), headers=headers)
     return req.json()
 
+def add_run(project_id, **kwargs):
+    """Creates a new test run."""
+    fields = {}
+
+    for key in kwargs:
+        fields[key] = kwargs[key]
+
+    req = requests.post(settings.URL + 'add_run/' + str(project_id),
+                        auth=(settings.USR, settings.PWD), headers=headers,
+                        data=json.dumps(fields))
+
+    return req
+
+def update_run(run_id, **kwargs):
+    """Updates an existing test run (partial updates are supported, i.e. you can submit
+    and update specific fields only)."""
+    fields = {}
+
+    for key in kwargs:
+        fields[key] = kwargs[key]
+
+    req = requests.post(settings.URL + 'update_run/' + str(run_id),
+                        auth=(settings.USR, settings.PWD), headers=headers,
+                        data=json.dumps(fields))
+
+    return req
+
+def close_run(run_id):
+    """Closes an existing test run and archives its tests & results"""
+    req = requests.post(settings.URL + 'close_run/' + str(run_id),
+                        auth=(settings.USR, settings.PWD), headers=headers)
+
+    return req.json
+
+def delete_run(run_id):
+    """Closes an existing test run and archives its tests & results"""
+    req = requests.post(settings.URL + 'delete_run/' + str(run_id),
+                        auth=(settings.USR, settings.PWD), headers=headers)
+
+    return req.json
 
 def get_section(section_id):
     """Returns an existing section."""
@@ -303,9 +346,9 @@ def get_section(section_id):
     return req.json()
 
 
-def get_sections(suite_id):
+def get_sections(project_id, suite_id):
     """Returns a list of sections for a project and test suite."""
-    req = requests.get(settings.URL + 'get_sections/' + str(suite_id),
+    req = requests.get(settings.URL + 'get_sections/%d&suite_id=%d' % (project_id, suite_id,),
                        auth=(settings.USR, settings.PWD), headers=headers)
     return req.json()
 
@@ -333,10 +376,41 @@ def get_results(test_id):
 
 def get_results_for_case(run_id, case_id):
     """Returns a list of test results for a test run and case combination"""
-    req = requests.get(settings.URL + '/%d/%d' % (run_id, case_id),
+    req = requests.get(settings.URL + 'get_results_for_case/%d/%d' % (run_id, case_id),
                        auth=(settings.USR, settings.PWD), headers=headers)
     return req.json()
 
+def get_result_fields():
+    """Returns a list of available test result custom fields"""
+    req = requests.get(settings.URL + 'get_result_fields/',
+                       auth=(settings.USR, settings.PWD), headers=headers)
+
+    return req.json()
+
+def add_result(test_id, **kwargs):
+    """Creates a new test result."""
+    fields = {}
+
+    for key in kwargs:
+        fields[key] = kwargs[key]
+
+    req = requests.post(settings.URL + 'add_result/' + str(test_id),
+                        auth=(settings.USR, settings.PWD), headers=headers,
+                        data=json.dumps(fields))
+
+    return req
+
+def add_result_for_case(run_id, case_id, **kwargs):
+    """Creates a new test result for a test run and case combination"""
+    fields = {}
+
+    for key in kwargs:
+        fields[key] = kwargs[key]
+
+    req = requests.post(settings.URL + 'add_result_for_case/%d/%d' % (run_id, case_id),
+                        auth=(settings.USR, settings.PWD), headers=headers)
+
+    return req
 
 def get_suite(suite_id):
     """Returns an existing test suite."""
